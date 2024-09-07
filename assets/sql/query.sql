@@ -1,6 +1,6 @@
 -- Step 1: Create the Database
-CREATE DATABASE my_database;  
-USE my_database;
+CREATE DATABASE sales_system_db;  
+USE sales_system_db;
 
 -- Step 2: Create Tables
 
@@ -20,7 +20,7 @@ CREATE TABLE Products (
     name VARCHAR(100) NOT NULL,
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
-    stock INT NOT NULL,
+    stock_qty INT NOT NULL,
     seller_id INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (seller_id) REFERENCES Users(id) ON DELETE SET NULL  
@@ -37,10 +37,11 @@ CREATE TABLE Orders (
 );
 
 -- 4. Order Items Table
-CREATE TABLE Order_Items (
+CREATE TABLE Order_Products (
     order_id INT,
     product_id INT,
     quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
     PRIMARY KEY (order_id, product_id),
     FOREIGN KEY (order_id) REFERENCES Orders(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES Products(id) ON DELETE CASCADE
@@ -54,4 +55,26 @@ CREATE TABLE Transactions (
     transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     payment_method ENUM('credit_card', 'debit_card', 'paypal', 'bank_transfer') NOT NULL,
     FOREIGN KEY (order_id) REFERENCES Orders(id) ON DELETE CASCADE
+);
+
+-- 6. Cart Table
+CREATE TABLE Cart (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,  
+    status ENUM('pending', 'completed', 'canceled') DEFAULT 'pending',  
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE  
+);
+
+-- 7. Cart_Product Table
+CREATE TABLE Cart_Product (
+    cart_id INT,  
+    product_id INT, 
+    quantity INT NOT NULL,  
+    price DECIMAL(10, 2) NOT NULL,  
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (cart_id, product_id),
+    FOREIGN KEY (cart_id) REFERENCES Cart(id) ON DELETE CASCADE,  
+    FOREIGN KEY (product_id) REFERENCES Products(id) ON DELETE CASCADE  
 );
