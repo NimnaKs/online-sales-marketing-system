@@ -1,8 +1,8 @@
--- Step 1: Create the Database
+-- 1: Create the Database
 CREATE DATABASE sales_system_db;  
 USE sales_system_db;
 
--- Step 2: Create Tables
+-- 2: Create Tables
 
 -- 1. Users Table
 CREATE TABLE Users (
