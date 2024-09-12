@@ -20,7 +20,7 @@
     <div class="search-cart-user">
         <input type="text" placeholder="Search" class="search-bar">
         <button class="search-button">Search</button>
-        <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+        <a href="track-orders.php" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
         <?php if(!isset($_SESSION['user'])): ?>
             <a href="login.php" class="user-icon"><i class="fas fa-user"></i></a>
         <?php else: ?>
@@ -29,7 +29,7 @@
                     <button class="dropdown-button"><i class="fas fa-chevron-down"></i></button>
                     <div class="dropdown-content">
                         <?php if($_SESSION['user']['role'] == 'seller'): ?>
-                            <a href="dashboard.php">Go to Dashboard</a>
+                            <a href="seller_dashboard/dashboard.php">Go to Dashboard</a>
                         <?php endif; ?>
                         <a href="logout.php">Logout</a>
                     </div>

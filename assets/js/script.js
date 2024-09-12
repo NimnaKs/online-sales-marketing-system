@@ -9,7 +9,6 @@ function validateForm() {
         return false;
     }
 
-    // Simple email validation regex
     const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
     if (!email.match(emailPattern)) {
         alert("Please enter a valid email address.");
@@ -46,7 +45,7 @@ function toggleProductForm() {
 }
 
 function fetchProducts() {
-    fetch('fetch_products.php')
+    fetch('../seller_dashboard/fetch_product.php')
         .then(response => response.json())
         .then(products => {
             const tableBody = document.getElementById('productTableBody');
@@ -79,7 +78,6 @@ function fetchProducts() {
         .catch(error => console.error('Error fetching products:', error));
 }
 
-fetchProducts();  
 
 function showImagePreview(event) {
   console.log('Image Preview Called');
@@ -100,7 +98,7 @@ function showImagePreview(event) {
 function editProduct(product_id) {
   console.log("edit product");
   toggleProductForm();
-  fetch(`fetch_product.php?id=${product_id}`)
+  fetch(`../seller_Dashboard/fetch_product.php?id=${product_id}`)
       .then(response => response.json())
       .then(product => {
           if (product.error) {
@@ -135,9 +133,30 @@ function editProduct(product_id) {
 
 function confirmDelete(productId) {
   if (confirm('Are you sure you want to delete this product?')) {
-      window.location.href = `delete_product.php?id=${productId}`;
+      window.location.href = `../seller_dashboard/delete_product.php?id=${productId}`;
   }
 }
 
+console.log('Status Updated - 1');
+
+document.querySelectorAll('.update-btn').forEach(button => {
+    console.log('Status Updated -2');
+    button.addEventListener('click', function () {
+        const orderId = this.getAttribute('data-order-id');
+        const statusSelect = document.querySelector(`select[data-order-id='${orderId}']`);
+        const newStatus = statusSelect.value;
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "update-order-status.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                alert(`Order ID ${orderId} updated to ${newStatus}`);
+            }
+        };
+        xhr.send(`orderId=${orderId}&newStatus=${newStatus}`);
+    });
+});
 
 
+fetchProducts();  
