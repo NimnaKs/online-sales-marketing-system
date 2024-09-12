@@ -64,7 +64,7 @@ $stmt->close();
                 <?php if (!empty($seller['seller_image'])): ?>
                     <img id="imagePreview" src="data:image/jpeg;base64,<?php echo $seller['seller_image']; ?>" alt="Seller Image">
                 <?php else: ?>
-                    <img id="imagePreview" src="assets/images/preview-img.png" alt="Seller Image">
+                    <img id="imagePreview" src="../assets/images/preview-img.png" alt="Seller Image">
                 <?php endif; ?>
                 
                 <input type="file" id="seller_image" name="seller_image" accept="image/*" onchange="previewImage(event)">
