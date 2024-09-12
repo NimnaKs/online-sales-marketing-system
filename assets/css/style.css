@@ -113,12 +113,10 @@ nav ul li a:hover {
     color: #d5564f;
 }
 
-/* Dropdown Container */
 .dropdown {
     position: relative;
     display: inline-block;
 }
-
 
 .dropdown-button {
     background-color: #d5564f;
@@ -151,7 +149,7 @@ nav ul li a:hover {
     border-radius: 8px;
     overflow: hidden;
     transform: translateY(10px);
-    transition: all 0.3s ease-in-out; 
+    transition: all 0.3s ease-in-out;
     z-index: 1;
 }
 
@@ -172,7 +170,7 @@ nav ul li a:hover {
 
 .dropdown:hover .dropdown-content {
     display: block;
-    opacity: 1;
+    opacity: 5;
     transform: translateY(0);
 }
 
@@ -571,3 +569,4 @@ footer {
         width: 100%;
     }
 }
+

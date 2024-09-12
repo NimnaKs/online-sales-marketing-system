@@ -59,10 +59,8 @@ $stmt->close();
       <div class="account-form">
         <form action="update_account.php" method="POST" enctype="multipart/form-data">
           
-          <!-- Profile image upload section -->
           <div class="profile-section">
             <div class="file-upload" id="uploadContainer">
-                <!-- Display Base64 encoded image from the database -->
                 <?php if (!empty($seller['seller_image'])): ?>
                     <img id="imagePreview" src="data:image/jpeg;base64,<?php echo $seller['seller_image']; ?>" alt="Seller Image">
                 <?php else: ?>
@@ -74,7 +72,6 @@ $stmt->close();
             </div>
           </div>
 
-          <!-- Form fields for seller details -->
           <div>
             <label for="seller_name">Seller Name</label>
             <input type="text" id="seller_name" name="seller_name" value="<?php echo htmlspecialchars($seller['seller_name']); ?>" required>

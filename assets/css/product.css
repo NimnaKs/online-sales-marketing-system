@@ -1,0 +1,219 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.product-center {
+    background-color: #fff;
+}
+
+.product-header {
+    position: relative;
+    height: 60vh; 
+    background-image: url('../images/product_page.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.product-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.product-header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.product-header-content h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.product-header-content p {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+}
+
+.product-content {
+    width: 85%; 
+    margin: 30px auto;
+}
+
+.product-category-title {
+    font-size: 2rem;
+    color: #4e4c4c;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #4e4c4c;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.product-section {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 15px; 
+    margin-bottom: 50px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 1 1 calc(30% - 15px); 
+    max-width: calc(30% - 15px); 
+    min-width: 240px; 
+}
+
+.product-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
+}
+
+.product-image {
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+}
+
+.product-info {
+    padding: 15px; 
+}
+
+.product-name {
+    font-size: 1.2rem; 
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.product-description {
+    font-size: 0.9rem; 
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.product-seller, .product-email {
+    font-size: 0.9rem; 
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 1.1rem; 
+    color: #ff5f57;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.product-actions {
+    text-align: center;
+}
+
+.buy-now-btn {
+    background-color: #ff3b30;
+    color: #fff;
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem; 
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.buy-now-btn:hover {
+    background-color: #e42c22;
+}
+
+.cta-track-orders {
+    position: relative;
+    height: 60vh;
+    background-image: url('../images/order_details.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.cta-track-orders .cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.cta-track-orders .cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-track-orders .cta-content h2 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: 1.5px;
+}
+
+.cta-track-orders .cta-content p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+}
+
+.cta-track-orders .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #ff5f57;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-track-orders .cta-button:hover {
+    background-color: #e04844;
+    transform: translateY(-3px);
+}

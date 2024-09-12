@@ -81,50 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-    <!-- Top Banner -->
-    <div class="top-banner">
-        <p>Exclusive Offer: Boost Your Sales with Our Advanced Marketing Tools – Get 50% OFF! <a href="#">Learn More</a></p>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <h1>SHOP MASTER</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Products</a></li>
-                <?php if(!isset($_SESSION['user'])): ?>
-                    <li><a href="register.php">Register</a></li>
-                <?php else: ?>
-                    <li><a href="#">My Account</a></li>
-                <?php endif; ?>
-            </ul>
-        </nav>
-        <div class="search-cart-user">
-            <input type="text" placeholder="Search" class="search-bar">
-            <button class="search-button">Search</button>
-            <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
-            <?php if(!isset($_SESSION['user'])): ?>
-                <a href="login.php" class="user-icon"><i class="fas fa-user"></i></a>
-            <?php else: ?>
-                <div class="user-menu">
-                    <a href="#" class="user-icon"><i class="fas fa-user"></i> <?php echo $_SESSION['user']['name']; ?></a>
-                    <div class="dropdown">
-                        <button class="dropdown-button">▼</button>
-                        <div class="dropdown-content">
-                            <a href="logout.php">Logout</a>
-                            <?php if($_SESSION['user']['role'] == 'seller'): ?>
-                                <a href="dashboard.php">Go to Dashboard</a>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-            <?php endif; ?>
-        </div>
-    </header>
+    <?php include('header.php'); ?>
 
     <section class="registration-block">
         <div class="registration-container">
@@ -160,11 +117,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-bottom">
-            <p>&copy; 2024 ShopMaster | Designed by NimnaKs</p>
-        </div>
-    </footer>
+    <?php include('footer.php'); ?>
+
+    
 </body>
 </html>

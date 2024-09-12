@@ -14,62 +14,17 @@ session_start();
 </head>
 
 <body>
-    <!-- Top Banner -->
-    <div class="top-banner">
-        <p>Exclusive Offer: Boost Your Sales with Our Advanced Marketing Tools – Get 50% OFF! <a href="#">Learn More</a></p>
-    </div>
+    
+    <?php include('header.php'); ?>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <h1>SHOP MASTER</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#">Products</a></li>
-                <?php if(!isset($_SESSION['user'])): ?>
-                    <li><a href="register.php">Register</a></li>
-                <?php else: ?>
-                    <li><a href="#">My Account</a></li>
-                <?php endif; ?>
-            </ul>
-        </nav>
-        <div class="search-cart-user">
-            <input type="text" placeholder="Search" class="search-bar">
-            <button class="search-button">Search</button>
-            <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
-            <?php if(!isset($_SESSION['user'])): ?>
-                <a href="login.php" class="user-icon"><i class="fas fa-user"></i></a>
-            <?php else: ?>
-                <div class="user-menu">
-                    <div class="dropdown">
-                        <button class="dropdown-button"><i class="fas fa-chevron-down"></i></button>
-                        <div class="dropdown-content">
-                            <?php if($_SESSION['user']['role'] == 'seller'): ?>
-                                <a href="dashboard.php">Go to Dashboard</a>
-                            <?php endif; ?>
-                            <a href="logout.php">Logout</a>
-                        </div>
-                    </div>
-                    <a href="#" class="user-icon"><i class="fas fa-user"></i> <?php echo $_SESSION['user']['name']; ?></a>
-                </div>
-            <?php endif; ?>
-        </div>
-
-    </header>
-
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Welcome to Our Online Store</h1>
             <p>Shop the latest products and manage your business with our simple, easy-to-use platform.</p>
-            <a href="products.php" class="cta-button">Shop Now</a>
+            <a href="product_page.php" class="cta-button">Shop Now</a>
         </div>
     </section>
 
-    <!-- Features Section -->
     <section id="features" class="features">
         <h2>Why Choose Us?</h2>
         <div class="feature-cards">
@@ -96,49 +51,6 @@ session_start();
         </div>
     </section>
 
-    <!-- Product Section -->
-    <!-- <section class="products">
-        <h2>Our Products</h2>
-        <div class="product-categories">
-            <div class="category-card">
-                <i class="fas fa-tshirt category-icon"></i>
-                <h3>Apparel</h3>
-                <p>Find the latest fashion trends and accessories.</p>
-            </div>
-            <div class="category-card">
-                <i class="fas fa-laptop category-icon"></i>
-                <h3>Electronics</h3>
-                <p>Discover the newest gadgets and electronics.</p>
-            </div>
-            <div class="category-card">
-                <i class="fas fa-couch category-icon"></i>
-                <h3>Home & Living</h3>
-                <p>Decorate your home with our exclusive collections.</p>
-            </div>
-        </div>
-        <div class="product-cards">
-            <div class="product-card">
-                <img src="assets/images/product1.jpg" alt="Product 1" class="product-image">
-                <h3 class="product-title">Stylish Jacket</h3>
-                <p class="product-price">$49.99</p>
-                <a href="#" class="product-button">Buy Now</a>
-            </div>
-            <div class="product-card">
-                <img src="assets/images/product2.jpg" alt="Product 2" class="product-image">
-                <h3 class="product-title">Wireless Headphones</h3>
-                <p class="product-price">$89.99</p>
-                <a href="#" class="product-button">Buy Now</a>
-            </div>
-            <div class="product-card">
-                <img src="assets/images/product3.jpg" alt="Product 3" class="product-image">
-                <h3 class="product-title">Modern Sofa</h3>
-                <p class="product-price">$399.99</p>
-                <a href="#" class="product-button">Buy Now</a>
-            </div>
-        </div>
-    </section>-->
-
-    <!-- Call to Action Section -->
     <section class="cta-section">
         <div class="cta-overlay"></div>
         <div class="cta-content">
@@ -148,12 +60,7 @@ session_start();
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-bottom">
-            <p>&copy; 2024 ShopMaster | Designed by NimnaKs</p>
-        </div>
-    </footer>
+    <?php include('footer.php'); ?>
 
     <script src="assets/js/script.js"></script>
 </body>
