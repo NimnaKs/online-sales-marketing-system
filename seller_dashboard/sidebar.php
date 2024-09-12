@@ -1,8 +1,8 @@
 <nav>
       <ul>
-        <li><a href="#" class="logo">
+        <li><a href="my_account.php" class="logo">
           <img src="../assets/images/dp.jpg">
-          <span class="nav-item">Seller | Nimna Kaveesha</span>
+          <span class="nav-item">Seller Dashboard</span>
         </a></li>
         <li><a href="dashboard.php">
          <i class="fas fa-tachometer-alt"></i>
@@ -27,3 +27,4 @@
         </a></li>
       </ul>
 </nav>
+

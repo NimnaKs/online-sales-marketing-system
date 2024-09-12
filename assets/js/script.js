@@ -45,7 +45,7 @@ function toggleProductForm() {
 }
 
 function fetchProducts() {
-    fetch('../seller_dashboard/fetch_product.php')
+    fetch('../seller_dashboard/fetch_products.php')
         .then(response => response.json())
         .then(products => {
             const tableBody = document.getElementById('productTableBody');
@@ -137,26 +137,27 @@ function confirmDelete(productId) {
   }
 }
 
-console.log('Status Updated - 1');
-
-document.querySelectorAll('.update-btn').forEach(button => {
-    console.log('Status Updated -2');
-    button.addEventListener('click', function () {
-        const orderId = this.getAttribute('data-order-id');
-        const statusSelect = document.querySelector(`select[data-order-id='${orderId}']`);
-        const newStatus = statusSelect.value;
-
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "update-order-status.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                alert(`Order ID ${orderId} updated to ${newStatus}`);
-            }
-        };
-        xhr.send(`orderId=${orderId}&newStatus=${newStatus}`);
-    });
-});
-
-
 fetchProducts();  
+
+/*function fetchSellerDetails() {
+    fetch('../seller_dashboard/fetch_seller_details.php')
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          console.error('Error:', data.error);
+          return;
+        }
+
+        const sellerNameElement = document.getElementById('seller-name');
+        const sellerImageElement = document.getElementById('seller-image');
+
+        sellerNameElement.textContent = data.seller_name;
+
+        if (data.seller_image) {
+          sellerImageElement.src = data.seller_image;
+        }
+      })
+      .catch(error => console.error('Error fetching seller details:', error));
+  }
+
+  fetchSellerDetails();*/
