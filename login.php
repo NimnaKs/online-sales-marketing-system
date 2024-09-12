@@ -33,7 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'name' => $user['name'],
                     'role' => $user['role']
                 ];
-                header('Location: index.php');
+
+                if ($user['role'] === 'admin') {
+                    header('Location: admin_dashboard/dashboard.php');
+                }else {
+                    header('Location: index.php'); 
+                }
                 exit;
             } else {
                 $error = "Invalid email or password!";

@@ -81,4 +81,12 @@ CREATE TABLE Transactions (
     FOREIGN KEY (order_id) REFERENCES Orders(id) ON DELETE CASCADE
 );
 
+-- 5. FeedBack Table
+CREATE TABLE feedback (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  status ENUM('pending', 'reviewed', 'resolved') DEFAULT 'pending'
+);
 
