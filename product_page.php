@@ -10,6 +10,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page - Shop Master</title>
+    <link rel="icon" href="assets/images/icon.png" type="image/png">
     <link rel="stylesheet" href="assets/css/product.css"> 
     <link rel="stylesheet" href="assets/css/style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">

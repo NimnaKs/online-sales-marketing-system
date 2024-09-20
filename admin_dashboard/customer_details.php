@@ -12,6 +12,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['u
 <head>
   <meta charset="UTF-8" />
   <title>Customer Details | Sales & Marketing System</title>
+  <link rel="icon" href="assets/images/icon.png" type="image/png">
   <link rel="stylesheet" href="../assets/css/sidebar-style.css" />
   <link rel="stylesheet" href="../assets/css/admin.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>

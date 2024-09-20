@@ -54,7 +54,7 @@ CREATE TABLE Products (
 );
    
 
--- 4. Updated Orders Table
+-- 4. Orders Table
 CREATE TABLE Orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -66,19 +66,6 @@ CREATE TABLE Orders (
     buyer_status ENUM('active', 'cancelled', 'delivered') DEFAULT 'active',
     FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,  
     FOREIGN KEY (product_id) REFERENCES Products(id) ON DELETE CASCADE
-);
-
-
-
--- 5. Transactions Table
-CREATE TABLE Transactions (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT NOT NULL,
-    amount DECIMAL(10, 2) NOT NULL,
-    transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    payment_method ENUM('credit_card', 'debit_card', 'paypal', 'bank_transfer') NOT NULL,
-    card_number VARCHAR(20),  
-    FOREIGN KEY (order_id) REFERENCES Orders(id) ON DELETE CASCADE
 );
 
 -- 5. FeedBack Table

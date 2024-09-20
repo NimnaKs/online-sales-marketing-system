@@ -17,6 +17,7 @@ if (!isset($_SESSION['user']['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track Orders - Shop Master</title>
+    <link rel="icon" href="assets/images/icon.png" type="image/png">
     <link rel="stylesheet" href="assets/css/track_orders.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
