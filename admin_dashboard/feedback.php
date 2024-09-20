@@ -13,71 +13,8 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['u
   <meta charset="UTF-8" />
   <title>Feedback | Sales & Marketing System</title>
   <link rel="stylesheet" href="../assets/css/sidebar-style.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ecf0f1;
-      color: #333;
-    }
-    .container {
-      display: flex;
-      min-height: 100vh;
-    }
-    .feedback-details {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin: 12px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #f4f4f4;
-      font-weight: bold;
-    }
-    tr:hover {
-      background-color: #f1f1f1;
-    }
-    .status-pending {
-      color: #ffc107;
-    }
-    .status-reviewed {
-      color: #007bff;
-    }
-    .status-resolved {
-      color: #28a745;
-    }
-    .no-record {
-      text-align: center;
-      color: #888;
-      padding: 20px;
-    }
-    .status-form {
-      display: flex;
-      align-items: center;
-    }
-    .status-form select {
-      margin-right: 10px;
-    }
-    .status-form button {
-      padding: 5px 10px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-      color: #fff;
-      background-color: #007bff;
-    }
-  </style>
 </head>
 <body>
   <div class="container">

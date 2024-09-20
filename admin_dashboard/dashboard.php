@@ -14,10 +14,11 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['u
   <meta charset="UTF-8" />
   <title>Admin Dashboard | Sales & Marketing System</title>
   <link rel="stylesheet" href="../assets/css/sidebar-style.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
   <style>
-    :root {
+    /*:root {
       --primary-color: #3498db;
       --secondary-color: #2ecc71;
       --tertiary-color: #e74c3c;
@@ -156,7 +157,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['u
         font-size: 12px;
         padding: 8px;
       }
-    }
+    }*/
   </style>
 </head>
 

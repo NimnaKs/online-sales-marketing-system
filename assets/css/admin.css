@@ -1,0 +1,224 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --light-bg: #ecf0f1;
+    --card-bg: #fff;
+    --text-color: #333;
+    --border-radius: 8px;
+    --button-radius: 5px;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    margin: 0;
+  }
+  
+  .container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .main {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .dashboard-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 12px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 5px solid var(--primary-color);
+    transition: all 0.3s ease;
+  }
+  
+  .dashboard-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
+  
+  .dashboard-card i {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-right: 15px;
+  }
+  
+  .dashboard-card h2 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-color);
+  }
+  
+  .dashboard-card p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .status {
+    color: var(--primary-color);
+  }
+  
+  .status.pending {
+    color: var(--tertiary-color);
+  }
+  
+  .status.reviewed, .status.resolved {
+    color: var(--secondary-color);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+  }
+  
+  th {
+    background-color: var(--light-bg);
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .no-record {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    table, th, td {
+      font-size: 12px;
+      padding: 8px;
+    }
+    .seller-image, .product-image {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  
+  /* Other components' styles */
+  .feedback-details, .order-details, .product-details, .seller-details {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 12px;
+  }
+  
+  .feedback-details table, .order-details table, .product-details table, .seller-details table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .feedback-details th, .order-details th, .product-details th, .seller-details th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .feedback-details tr:hover, .order-details tr:hover, .product-details tr:hover, .seller-details tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .preview-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .preview-image img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .seller-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .product-name {
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+  }
+  .status-pending {
+    color: #ffc107;
+  }
+  .status-shipped {
+    color: #007bff;
+  }
+  .status-active {
+    color: #007bff;
+  }
+  .status-cancelled {
+    color: #dc3545;
+  }
+  .status-delivered {
+    color: #28a745;
+  }
+
+  .status-resolved {
+    color: #28a745;
+  }
+
+  .status-form {
+    display: flex;
+    align-items: center;
+  }
+  .status-form select {
+    margin-right: 10px;
+  }
+  .status-form button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  @media (max-width: 768px) {
+    .seller-image, .product-image {
+      width: 60px;
+      height: 60px;
+    }
+  }
