@@ -132,13 +132,14 @@ $product = $product_result->fetch_assoc();
 
                         payhere.onCompleted = function onCompleted(orderId) {
                             let xhr = new XMLHttpRequest();
-                            xhr.open("POST", `order-process.php?id=<?php echo $product_id; ?>& qty=${ quantity }`, true);
+                            xhr.open("POST", `order-process.php?id=<?php echo $product_id; ?>& qty=${quantity}`, true);
                             xhr.onreadystatechange = function () {
                                 if (xhr.status === 200 && xhr.readyState === 4) {
                                     alert("Payment completed. OrderID: " + orderId);
-                                } 
+                                }
+                                window.location.href = "track-orders.php";
                             };
-                            xhr.send();       
+                            xhr.send();
                         };
 
                         payhere.onDismissed = function onDismissed() {
@@ -152,8 +153,8 @@ $product = $product_result->fetch_assoc();
                         let payment = {
                             sandbox: true,
                             merchant_id: data.merchant_id,
-                            return_url: undefined, 
-                            cancel_url: undefined, 
+                            return_url: undefined,
+                            cancel_url: undefined,
                             notify_url: "http://sample.com/notify",
                             order_id: data.order_id,
                             items: data.name,

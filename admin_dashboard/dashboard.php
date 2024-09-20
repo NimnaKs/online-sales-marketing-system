@@ -223,19 +223,6 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['u
         </div>
       </div>
 
-      <div class="dashboard-card">
-        <i class="fas fa-dollar-sign"></i>
-        <div>
-          <h2>Total Revenue</h2>
-          <?php
-          $query = "SELECT SUM(amount) AS total_revenue FROM Transactions";
-          $result = $con->query($query);
-          $data = $result->fetch_assoc();
-          echo "<p>${$data['total_revenue']}</p>";
-          ?>
-        </div>
-      </div>
-
       <h2>Recent Orders</h2>
       <table>
         <thead>

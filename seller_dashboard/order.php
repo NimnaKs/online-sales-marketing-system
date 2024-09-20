@@ -35,7 +35,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['u
             </div>
 
             <div class="order-content">
-                
+
                 <div class="order-filters">
                     <form method="GET" action="">
                         <input type="date" name="startDate" placeholder="Start Date" />
@@ -66,34 +66,40 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['u
                     </thead>
                     <tbody>
                         <?php
-                        
+
                         include('../includes/connect.php');
 
                         $startDate = isset($_GET['startDate']) ? $_GET['startDate'] : '';
                         $endDate = isset($_GET['endDate']) ? $_GET['endDate'] : '';
                         $orderStatusFilter = isset($_GET['orderStatusFilter']) ? $_GET['orderStatusFilter'] : '';
 
+
+                        error_reporting(E_ALL);
+                        ini_set('display_errors', 1);
+
                         $user_id = $_SESSION['user']['id'];
+                        echo "<script>console.log('hee');</script>";
+                        $query = "SELECT o.id, o.order_date, u.name AS customer, p.name AS product, s.seller_name AS seller, o.quantity, o.total, o.seller_status
+                                    FROM Orders o
+                                    JOIN Products p ON o.product_id = p.id
+                                    JOIN Users u ON o.user_id = u.id
+                                    JOIN seller s ON p.seller_id = s.seller_id
+                                    WHERE s.user_id = ?";
 
-                        $query = "SELECT o.id, o.order_date, u.name AS customer, p.name AS product, o.quantity, o.total, o.seller_status
-                                  FROM Orders o
-                                  JOIN Products p ON o.product_id = p.id
-                                  JOIN Users u ON o.user_id = u.id
-                                  WHERE u.id = ?";
+                        if ($startDate) {
+                            $query .= " AND o.order_date >= ?";
+                        }
+                        if ($endDate) {
+                            $query .= " AND o.order_date <= ?";
+                        }
+                        if ($orderStatusFilter) {
+                            $query .= " AND o.seller_status = ?";
+                        }
 
-                          if ($startDate) {
-                              $query .= " AND o.order_date >= ?";
-                          }
-                          if ($endDate) {
-                              $query .= " AND o.order_date <= ?";
-                          }
-                          if ($orderStatusFilter) {
-                              $query .= " AND o.seller_status = ?";
-                          }
-
-                          $query .= " ORDER BY o.order_date DESC";
+                        $query .= " ORDER BY o.order_date DESC";
 
                         $stmt = $con->prepare($query);
+                        echo "<script>console.log('<?php [$user_id] ?>');</script>";
                         $params = [$user_id];
 
                         if ($startDate) {
@@ -142,23 +148,23 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['u
     </div>
 
     <script>
-      document.querySelectorAll('.update-btn').forEach(button => {
-          button.addEventListener('click', function () {
-              const orderId = this.getAttribute('data-order-id');
-              const statusSelect = document.querySelector(`select[data-order-id='${orderId}']`);
-              const newStatus = statusSelect.value;
+        document.querySelectorAll('.update-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const orderId = this.getAttribute('data-order-id');
+                const statusSelect = document.querySelector(`select[data-order-id='${orderId}']`);
+                const newStatus = statusSelect.value;
 
-              const xhr = new XMLHttpRequest();
-              xhr.open("POST", "update-order-status.php", true);
-              xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-              xhr.onreadystatechange = function () {
-                  if (xhr.readyState === 4 && xhr.status === 200) {
-                      alert(`Order ID ${orderId} updated to ${newStatus}`);
-                  }
-              };
-              xhr.send(`orderId=${orderId}&newStatus=${newStatus}`);
-          });
-      });
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", "update-order-status.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        alert(`Order ID ${orderId} updated to ${newStatus}`);
+                    }
+                };
+                xhr.send(`orderId=${orderId}&newStatus=${newStatus}`);
+            });
+        });
 
     </script>
 
