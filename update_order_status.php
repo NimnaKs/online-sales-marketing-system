@@ -2,6 +2,11 @@
 session_start();
 include('./includes/connect.php');
 
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $order_id = $_POST['order_id'];
     $buyer_status = $_POST['buyer_status'];

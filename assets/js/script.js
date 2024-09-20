@@ -139,25 +139,3 @@ function confirmDelete(productId) {
 
 fetchProducts();  
 
-/*function fetchSellerDetails() {
-    fetch('../seller_dashboard/fetch_seller_details.php')
-      .then(response => response.json())
-      .then(data => {
-        if (data.error) {
-          console.error('Error:', data.error);
-          return;
-        }
-
-        const sellerNameElement = document.getElementById('seller-name');
-        const sellerImageElement = document.getElementById('seller-image');
-
-        sellerNameElement.textContent = data.seller_name;
-
-        if (data.seller_image) {
-          sellerImageElement.src = data.seller_image;
-        }
-      })
-      .catch(error => console.error('Error fetching seller details:', error));
-  }
-
-  fetchSellerDetails();*/

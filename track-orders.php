@@ -1,5 +1,12 @@
 <?php
+include('./includes/connect.php');
+
 session_start();
+
+if (!isset($_SESSION['user']['id'])) {
+    header('Location: login.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +17,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track Orders - Shop Master</title>
-    <link rel="stylesheet" href="assets/css/track_orders.css"> 
+    <link rel="stylesheet" href="assets/css/track_orders.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -29,8 +36,13 @@ session_start();
             </div>
         </section>
 
-        <div class="order-content">
-        <?php
+        <div id="orders-content" style="display: flex;
+                                        flex-direction: row;
+                                        flex-wrap: wrap;
+                                        gap: 30px;
+                                        justify-content: space-evenly;
+                                        padding: 40px 20px;">
+            <?php
             include('./includes/connect.php');
 
             $user_id = $_SESSION['user']['id'];
@@ -44,10 +56,10 @@ session_start();
 
             if ($order_result->num_rows > 0) {
                 while ($order_row = $order_result->fetch_assoc()) {
-                    
+
                     $product_image_base64 = $order_row['product_image'];
 
-                    echo "<div class='order-card'>
+                    echo "<div class='order-card' style='width: fit-content;'>
                             <h3 class='order-product-name'>" . $order_row['product_name'] . "</h3>
                             <div class='order-image'>
                                 <img src='data:image/jpeg;base64,$product_image_base64' alt='" . $order_row['product_name'] . "'>
@@ -77,7 +89,7 @@ session_start();
             }
 
             $con->close();
-        ?>
+            ?>
         </div>
 
         <div class="cta-back-to-shop">

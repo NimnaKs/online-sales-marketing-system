@@ -1,3 +1,12 @@
+<?php
+session_start();
+include('../includes/connect.php');
+
+if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['user']['role'] != 'admin') {
+  header("Location: ../login.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +35,6 @@
     .container {
       display: flex;
       min-height: 100vh;
-      padding: 20px;
     }
   
     .customer-details {

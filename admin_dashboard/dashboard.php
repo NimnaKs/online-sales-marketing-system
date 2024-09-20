@@ -1,11 +1,21 @@
+<?php
+session_start();
+include('../includes/connect.php');
+
+if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['user']['role'] != 'admin') {
+  header("Location: ../login.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Admin Dashboard | Sales & Marketing System</title>
   <link rel="stylesheet" href="../assets/css/sidebar-style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
   <style>
     :root {
       --primary-color: #3498db;
@@ -18,29 +28,35 @@
       --text-color: #333;
       --border-radius: 12px;
     }
+
     body {
       font-family: 'Roboto', sans-serif;
       background-color: var(--light-bg);
       color: var(--text-color);
       margin: 0;
     }
+
     .container {
       display: flex;
       min-height: 100vh;
     }
+
     .main {
       flex: 1;
       padding: 20px;
       overflow-y: auto;
     }
+
     .main-top {
       margin-bottom: 20px;
     }
+
     h1 {
       font-size: 28px;
       color: var(--dark-bg);
       margin: 0;
     }
+
     .dashboard-card {
       background: var(--card-bg);
       border-radius: var(--border-radius);
@@ -55,37 +71,46 @@
       transition: all 0.3s ease;
       background: var(--card-gradient);
     }
+
     .dashboard-card:hover {
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
       transform: translateY(-5px);
     }
+
     .dashboard-card i {
       font-size: 40px;
       color: var(--primary-color);
       margin-right: 15px;
     }
+
     .dashboard-card h2 {
       margin: 0;
       font-size: 18px;
       color: var(--dark-bg);
     }
+
     .dashboard-card p {
       font-size: 24px;
       font-weight: bold;
       margin: 0;
     }
+
     .dashboard-card .status {
       color: var(--primary-color);
     }
+
     .dashboard-card .status.pending {
       color: var(--tertiary-color);
     }
+
     .dashboard-card .status.reviewed {
       color: var(--secondary-color);
     }
+
     .dashboard-card .status.resolved {
       color: var(--secondary-color);
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -95,35 +120,46 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
-    th, td {
+
+    th,
+    td {
       padding: 12px;
       text-align: left;
       border-bottom: 1px solid #ddd;
       font-size: 14px;
     }
+
     th {
       background-color: var(--light-bg);
       font-weight: bold;
       color: var(--dark-bg);
     }
+
     tr:nth-child(even) {
       background-color: #f9f9f9;
     }
+
     tr:hover {
       background-color: #f1f1f1;
     }
+
     .no-record {
       text-align: center;
       color: var(--secondary-color);
     }
+
     @media (max-width: 768px) {
-      table, th, td {
+
+      table,
+      th,
+      td {
         font-size: 12px;
         padding: 8px;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <?php include('sidebar.php'); ?>
@@ -271,4 +307,5 @@
     </div>
   </div>
 </body>
+
 </html>

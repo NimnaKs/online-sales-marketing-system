@@ -9,7 +9,6 @@
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="#features">Features</a></li>
             <li><a href="product_page.php">Products</a></li>
             <li><a href="help_center.php">Help Center</a></li>
             <?php if(!isset($_SESSION['user'])): ?>

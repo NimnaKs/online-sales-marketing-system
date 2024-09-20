@@ -1,14 +1,15 @@
 <?php
-session_start();
 include('../includes/connect.php');
+
+session_start();
+
+if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['user']['role'] != 'seller') {
+    header('Location: ../login.php');
+    exit();
+}
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-if (!isset($_SESSION['user']['id'])) {
-    header("Location: login.php");
-    exit();
-}
 
 $userId = $_SESSION['user']['id']; 
 

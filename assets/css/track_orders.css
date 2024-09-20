@@ -1,22 +1,23 @@
-body {
+/* General Styles for Order Tracking */
+.order-center {
     font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
     margin: 0;
     padding: 0;
+    background-color: #f9f9f9; /* Light background for modern look */
+    color: #333;
 }
 
-a {
+.order-center h1, h2, h3, p {
+    margin: 0;
+}
+
+.order-center a {
     text-decoration: none;
     color: inherit;
 }
 
-h1, h2, h3, p {
-    margin: 0;
-}
-
 /* Hero Section */
-.order-hero {
+.order-center .order-hero {
     position: relative;
     height: 50vh;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('../images/order_details_2.jpg');
@@ -29,46 +30,52 @@ h1, h2, h3, p {
     color: #fff;
 }
 
-.order-hero-content {
+.order-center .order-hero-content {
     z-index: 2;
     max-width: 700px;
     padding: 20px;
 }
 
-.order-hero h1 {
+.order-center .order-hero h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 15px;
 }
 
-.order-hero p {
+.order-center .order-hero p {
     font-size: 1.4rem;
 }
 
-/* Order Cards */
-.order-content {
+/* Order Cards Section */
+#orders-content {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 30px;
+    justify-content: space-between;
     padding: 40px 20px;
+    background-color: #ffffff; 
 }
 
-.order-card {
+/* Order Card Styles */
+.order-center  .order-card {
+    width: fit-content;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* flex: 1 1 calc(33.333% - 30px); 3 cards per row */
     margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
 }
-
 
 .order-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
 }
 
 .order-image img {
@@ -76,7 +83,7 @@ h1, h2, h3, p {
     height: 150px;
     object-fit: cover;
     border-radius: 12px;
-    margin-left: 70px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adds depth to the image */
 }
 
 .order-info {
@@ -86,31 +93,36 @@ h1, h2, h3, p {
     gap: 10px;
 }
 
+/* Modern Font and Color for Product Name */
 .order-product-name {
     font-size: 1.6rem;
     font-weight: 600;
     color: #222;
 }
 
+/* General Info Text */
 .order-info p {
     font-size: 1rem;
     color: #666;
 }
 
+/* Status Dropdown */
 .order-status select {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
+    background-color: #f2f2f2;
+    color: #333;
 }
 
-/* Buttons */
+/* CTA Button and Status Dropdown Hover Styles */
 .cta-button, .order-status select {
     background-color: #9f3630;
     color: white;
     border: none;
     border-radius: 8px;
-    padding: 6px 12px;
+    padding: 8px 16px;
     font-size: 1.1rem;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -147,16 +159,21 @@ h1, h2, h3, p {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .track-orders-content .order-card {
+        flex: 1 1 calc(50% - 30px); /* 2 cards per row */
+    }
+}
+
 @media (max-width: 768px) {
-    .order-card {
-        flex-direction: column;
-        align-items: center;
+    .track-orders-content .order-card {
+        flex: 1 1 100%; /* 1 card per row */
     }
 
     .order-image img {
         width: 120px;
         height: 120px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .cta-back-to-shop h2 {

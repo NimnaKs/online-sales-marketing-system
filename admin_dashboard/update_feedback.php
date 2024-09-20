@@ -1,5 +1,11 @@
 <?php
+session_start();
 include('../includes/connect.php');
+
+if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['user']['role'] != 'admin') {
+    header("Location: ../login.php");
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $feedback_id = intval($_POST['feedback_id']);

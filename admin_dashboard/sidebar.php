@@ -28,7 +28,7 @@
       <i class="fas fa-comment-dots"></i>
       <span class="nav-item">Feedbacks</span>
     </a></li>
-    <li><a href="../index.php" class="logout">
+    <li><a href="../logout.php" class="logout">
       <i class="fas fa-sign-out-alt"></i>
       <span class="nav-item">Log out</span>
     </a></li>

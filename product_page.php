@@ -98,6 +98,7 @@ session_start();
     </section>
 
     <?php include('footer.php'); ?>
+    
 </body>
 
 </html>

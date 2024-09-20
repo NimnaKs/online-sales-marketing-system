@@ -1,5 +1,13 @@
 <?php
+include('../includes/connect.php');
+
 session_start();
+
+if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['user']['role'] != 'seller') {
+    header('Location: ../login.php');
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
