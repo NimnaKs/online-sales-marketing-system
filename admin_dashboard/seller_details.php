@@ -44,7 +44,6 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id']) || $_SESSION['u
             <?php
             include('../includes/connect.php');
 
-            // Modify the query to order by created_at in descending order
             $query = "SELECT * FROM seller ORDER BY created_at DESC";
             $result = $con->query($query);
 

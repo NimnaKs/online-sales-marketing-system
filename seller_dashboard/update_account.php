@@ -48,7 +48,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: my_account.php?error=1");
         exit();
     }
-
-    $stmt->close();
 }
 ?>
